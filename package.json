@@ -1,0 +1,36 @@
+{
+  "name": "mailik",
+  "version": "0.1.0",
+  "description": "Send mail from templates",
+  "main": "index.js",
+  "repository": "apoutchika/mailik.git",
+  "author": "",
+  "license": "MIT",
+  "keywords": [
+    "mail",
+    "mjml",
+    "handlebars",
+    "template"
+  ],
+  "bugs": {
+    "url": "https://github.com/apoutchika/mailik/issues"
+  },
+  "homepage": "https://github.com/apoutchika/mailik#readme",
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "debug": "^4.1.1",
+    "glob": "^7.1.6",
+    "handlebars": "^4.7.6",
+    "lodash": "^4.17.15",
+    "mjml": "^4.6.3",
+    "nodemailer": "^6.4.6"
+  },
+  "devDependencies": {
+    "eslint": "^7.0.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1"
+  }
+}
