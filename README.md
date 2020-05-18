@@ -12,7 +12,7 @@ Prepare templates :
 
 Html version :
 
-#### **`invoice.html`**
+#### **`invoice.mjml`**
 
 ```mjml
 <mjml>
@@ -27,7 +27,7 @@ Html version :
             <td>{{name}}</td>
             <td>{{price}}€</td>
           </tr>
-          {{~/each products}}
+          {{/each}}
         </mj-table>
         <mj-text>
           <p>Total : <strong>{{total}}€</strong></p>
@@ -49,7 +49,7 @@ You'r Invoice :
 
 {{#each products}}
 - {{name}} : {{price}}€
-{{~/each products}}
+{{/each}}
 
 Total : {{total}}€
 ```
@@ -113,18 +113,22 @@ invoiceMail('to@exemple.com', {
 
 All templates must has 3 versions :
 
-- /templates/directory/[nameOfTemplate].html
-- /templates/directory/[nameOfTemplate].text
-- /templates/directory/[nameOfTemplate].subject
+- .subject
+- .text
+- .mjml if you use MJML, or .html
+
+* /templates/directory/[nameOfTemplate].mjml
+* /templates/directory/[nameOfTemplate].text
+* /templates/directory/[nameOfTemplate].subject
 
 Exemples :
 
-- /templates/directory/welcome.html
+- /templates/directory/welcome.mjml
 - /templates/directory/welcome.text
 - /templates/directory/welcome.subject
-- /templates/directory/forgetPassword.html
+- /templates/directory/forgetPassword.mjml
 - /templates/directory/forgetPassword.text
 - /templates/directory/forgetPassword.subject
-- /templates/directory/youHaveAMessage.html
+- /templates/directory/youHaveAMessage.mjml
 - /templates/directory/youHaveAMessage.text
 - /templates/directory/youHaveAMessage.subject

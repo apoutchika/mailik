@@ -24,19 +24,21 @@ const init = (userConfig) => {
   config = userConfig
 
   // Create cache for template (html, text and subject)
-  glob.sync(config.directory).map((file) => {
-    const extension = path.extname(file)
-    const name = path.basename(file, extension)
-    let type = extension.replace(/^\./, '')
-    let content = trim(fs.readFileSync(file, 'utf8'))
+  glob
+    .sync(path.join(config.directory, '/*.{mjml,html,text,subject}'))
+    .map((file) => {
+      const extension = path.extname(file)
+      const name = path.basename(file, extension)
+      let type = extension.replace(/^\./, '')
+      let content = trim(fs.readFileSync(file, 'utf8'))
 
-    if (type === 'mjml') {
-      type = 'html'
-      content = mjml(content).html
-    }
+      if (type === 'mjml') {
+        type = 'html'
+        content = mjml(content).html
+      }
 
-    set(templates, [name, type], Handlebars.compile(content))
-  })
+      set(templates, [name, type], Handlebars.compile(content))
+    })
 
   // Verify if all templates has html, text and subject
   Object.keys(templates).map((name) => {
