@@ -1,6 +1,6 @@
 # Mailik
 
-Mailik is a ecosystem for send mail in you'r app :
+Mailik is a ecosystem for send mail in your app :
 
 - Send mail with nodemailer
 - Template HTML with mjml
@@ -12,8 +12,9 @@ Prepare templates :
 
 Html version :
 
+#### **`invoice.html`**
+
 ```mjml
-{{! invoice.html }}
 <mjml>
   <mj-body>
     <mj-section>
@@ -39,8 +40,9 @@ Html version :
 
 Text version :
 
+#### **`invoice.text`**
+
 ```text
-{{! invoice.text }}
 Hello {{name}}
 
 You'r Invoice :
@@ -54,14 +56,16 @@ Total : {{total}}€
 
 Subject of mail :
 
+#### **`invoice.subject`**
+
 ```text
-{{! invoice.subject }}
 {{name}}, you'r invoice is ready ;)
 ```
 
 On start of you'r app, init mailik with you'r config :
 
 ```javascript
+const path = require('path')
 const mailik = requrie('mailik')
 
 mailik.init({
@@ -85,9 +89,11 @@ mailik.init({
 And use
 
 ```javascript
-const welcome = mailik('welcome')
+const mailik = require('mailik')
 
-welcome('to@exemple.com', {
+const invoiceMail = mailik('invoice') // template name
+
+invoiceMail('to@exemple.com', {
   name: 'Simon',
   products: [
     { name: 'Product A', price: 42 },
@@ -119,6 +125,6 @@ Exemples :
 - /templates/directory/forgetPassword.html
 - /templates/directory/forgetPassword.text
 - /templates/directory/forgetPassword.subject
-- /templates/directory/youHavAMessage.html
-- /templates/directory/youHavAMessage.text
-- /templates/directory/youHavAMessage.subject
+- /templates/directory/youHaveAMessage.html
+- /templates/directory/youHaveAMessage.text
+- /templates/directory/youHaveAMessage.subject
